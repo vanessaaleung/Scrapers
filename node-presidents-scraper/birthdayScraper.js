@@ -1,16 +1,16 @@
 const rp = require('request-promise');
 const $ = require('cheerio'); // parse the HTML
 
-const scrapeBirthday = function(url) {
+const scrapeBirthday = (url) => {
     return rp(url)
-                .then(function(html) {
+                .then((html) => {
                     // success
                     return {
                         name: $('.firstHeading', html).text(),
                         birthday: $('.bday', html).text()
                     }
                 })
-                .catch(function(err) {
+                .catch((err) => {
                     // handle error
                 });
 };
